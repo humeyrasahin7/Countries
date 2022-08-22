@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+struct CountriesResponse: Codable {
+    let data: [Country]
+}
+
+struct Country: Codable{
+    let code: String
+    let name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case code, name
+    }
+}
+
+

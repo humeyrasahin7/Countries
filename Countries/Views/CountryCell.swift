@@ -9,6 +9,7 @@ import UIKit
 
 class CountryCell: UITableViewCell {
 
+    @IBOutlet weak var addFavButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +21,6 @@ class CountryCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func addFavTapped(_ sender: Any) {
+    }
 }
