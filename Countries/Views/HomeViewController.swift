@@ -52,6 +52,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let country = viewModel.country(index: indexPath.row)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailsViewController
+        vc.viewModel.code = country?.code ?? ""
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

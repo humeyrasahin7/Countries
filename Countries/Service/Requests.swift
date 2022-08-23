@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+enum RequestError: Error{
+    case noDataAvailable
+    case canNotProcessData
+}
+
 private let headers: HTTPHeaders = [
     "X-RapidAPI-Key": "795e97294fmsh26fe1d2658c2554p1d505djsn2828d828d307",
         "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
@@ -26,10 +31,22 @@ struct Requests {
         AF.request(url, method: .get, headers: headers).responseDecodable(of: CountriesResponse.self) { response in
             guard let response = response.value else { return }
             countries = response.data
-            print("****", countries)
             completionHandler(countries)
+
+            
         }
-      /*  NetworkManager.shared.request(URL(string: url)!, headers: headers, decodeToType: CountriesResponse.self, completionHandler: completionHandler)*/
+    }
+    
+    func fetchCountryDetails(code: String,
+                             completionHandler: @escaping (CountryDetailData) -> ()){
+        var country: CountryDetailData!
+        let url = "\(baseUrl)/\(code)"
+        
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: CountryDetailResponse.self) { response in
+            guard let response = response.value else {return}
+            country = response.data
+            completionHandler(country)
+        }
     }
 
 }

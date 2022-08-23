@@ -19,6 +19,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-sT-24f">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryCell" id="ykG-f3-eZQ" customClass="CountryCell" customModule="Countries" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
@@ -44,14 +45,13 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addFavButton" destination="MLf-tr-5rV" id="Lql-YQ-20c"/>
-                                            <segue destination="zu7-gf-e0B" kind="show" id="UNk-gD-NV5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ayr-sT-24f" secondAttribute="trailing" id="5Ah-H7-wqc"/>
                             <constraint firstItem="ayr-sT-24f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M76-oK-fsN"/>
@@ -77,7 +77,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="labelColor"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -120,9 +120,6 @@
                                                 <constraint firstItem="6h7-FO-IOt" firstAttribute="top" secondItem="3bV-Xs-flG" secondAttribute="top" constant="6" id="kGb-aL-tGt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="zu7-gf-e0B" kind="show" id="b6n-lH-EUr"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -148,48 +145,48 @@
         <!--Details View Controller-->
         <scene sceneID="gao-G0-JOb">
             <objects>
-                <viewController id="zu7-gf-e0B" customClass="DetailsViewController" customModule="Countries" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zu7-gf-e0B" customClass="DetailsViewController" customModule="Countries" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Fa-Kz-3Xb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XLl-Za-ATc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="Eos-xh-DTX"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFr-gg-PWt">
-                                <rect key="frame" x="14" y="282" width="106" height="21"/>
+                                <rect key="frame" x="14" y="258" width="106" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVR-Zq-iNb">
-                                <rect key="frame" x="14" y="317" width="176" height="31"/>
+                                <rect key="frame" x="14" y="293" width="176" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="For More Information →"/>
                                 <connections>
                                     <action selector="moreInformationTapped:" destination="zu7-gf-e0B" eventType="touchUpInside" id="Dnd-cN-qCd"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Flc-5A-3ir">
+                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="f32-Bu-sgB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nYe-pi-ehH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XLl-Za-ATc" firstAttribute="leading" secondItem="nYe-pi-ehH" secondAttribute="leading" id="7eD-M9-CAB"/>
-                            <constraint firstItem="XLl-Za-ATc" firstAttribute="top" secondItem="nYe-pi-ehH" secondAttribute="top" id="Dsg-uh-VrY"/>
-                            <constraint firstItem="nYe-pi-ehH" firstAttribute="trailing" secondItem="XLl-Za-ATc" secondAttribute="trailing" id="GKj-Qy-k5h"/>
+                            <constraint firstItem="yFr-gg-PWt" firstAttribute="top" secondItem="Flc-5A-3ir" secondAttribute="bottom" constant="14" id="3xG-Ho-sbH"/>
+                            <constraint firstItem="Flc-5A-3ir" firstAttribute="top" secondItem="nYe-pi-ehH" secondAttribute="top" id="4Al-Mv-Yke"/>
+                            <constraint firstItem="nYe-pi-ehH" firstAttribute="trailing" secondItem="Flc-5A-3ir" secondAttribute="trailing" id="Ezk-aX-Tbk"/>
                             <constraint firstItem="cVR-Zq-iNb" firstAttribute="leading" secondItem="yFr-gg-PWt" secondAttribute="leading" id="LJM-st-Vap"/>
                             <constraint firstItem="cVR-Zq-iNb" firstAttribute="top" secondItem="yFr-gg-PWt" secondAttribute="bottom" constant="14" id="Se8-fN-46J"/>
                             <constraint firstItem="yFr-gg-PWt" firstAttribute="leading" secondItem="nYe-pi-ehH" secondAttribute="leading" constant="14" id="diL-3L-RLx"/>
-                            <constraint firstItem="yFr-gg-PWt" firstAttribute="top" secondItem="XLl-Za-ATc" secondAttribute="bottom" constant="14" id="kar-sU-Tlh"/>
+                            <constraint firstItem="Flc-5A-3ir" firstAttribute="leading" secondItem="nYe-pi-ehH" secondAttribute="leading" id="e0x-aR-ZhS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WlW-gw-Fz0"/>
                     <connections>
                         <outlet property="countryCodeLabel" destination="yFr-gg-PWt" id="Oz8-Lt-fYy"/>
-                        <outlet property="flagImage" destination="XLl-Za-ATc" id="wrw-aJ-TZy"/>
+                        <outlet property="flagImage" destination="Flc-5A-3ir" id="qqg-Lv-r2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyS-Si-dSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -265,14 +262,17 @@
             <point key="canvasLocation" x="19" y="850"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="UNk-gD-NV5"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
