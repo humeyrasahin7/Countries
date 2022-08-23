@@ -32,11 +32,9 @@ class DetailsViewController: UIViewController {
             buttonImage = UIImage(systemName: "star")
         }
         title = "\(country.name)"
-        
-        //let rbItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favTapped))
-        
-       // navigationController?.navigationBar.topItem?.rightBarButtonItem = rbItem
+    
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(favTapped))
+        self.navigationController?.navigationBar.tintColor = .black
         
         setCountryCode(country.code)
         

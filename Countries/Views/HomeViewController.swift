@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         service.fetchCountries { [weak self] countriesList in
             guard let self = self else {return}
             self.countries = countriesList
-            
+            StaticCountry.instance.countries = countriesList
             self.reloadData()
         }
         
