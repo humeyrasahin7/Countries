@@ -187,6 +187,7 @@
                     <connections>
                         <outlet property="countryCodeLabel" destination="yFr-gg-PWt" id="Oz8-Lt-fYy"/>
                         <outlet property="flagImage" destination="Flc-5A-3ir" id="qqg-Lv-r2H"/>
+                        <outlet property="moreInfoButton" destination="cVR-Zq-iNb" id="tdd-fm-0dp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyS-Si-dSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -196,27 +197,31 @@
         <!--Wikipedia View Controller-->
         <scene sceneID="soe-x1-P7V">
             <objects>
-                <viewController id="r5f-V5-QHe" customClass="WikipediaViewController" customModule="Countries" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wikiVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r5f-V5-QHe" customClass="WikipediaViewController" customModule="Countries" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BRX-xz-MrX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ze-O1-lNa">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-NK-clC">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </webView>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYi-UW-cWV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jYi-UW-cWV" firstAttribute="trailing" secondItem="8ze-O1-lNa" secondAttribute="trailing" id="9Pj-C6-Fzd"/>
-                            <constraint firstItem="jYi-UW-cWV" firstAttribute="bottom" secondItem="8ze-O1-lNa" secondAttribute="bottom" id="KjL-9i-GM9"/>
-                            <constraint firstItem="8ze-O1-lNa" firstAttribute="top" secondItem="jYi-UW-cWV" secondAttribute="top" id="UeD-4k-NFb"/>
-                            <constraint firstItem="8ze-O1-lNa" firstAttribute="leading" secondItem="jYi-UW-cWV" secondAttribute="leading" id="UmM-Mg-q2q"/>
+                            <constraint firstItem="vYj-NK-clC" firstAttribute="leading" secondItem="jYi-UW-cWV" secondAttribute="leading" id="BqO-qB-njq"/>
+                            <constraint firstItem="jYi-UW-cWV" firstAttribute="bottom" secondItem="vYj-NK-clC" secondAttribute="bottom" id="D96-WZ-Bnv"/>
+                            <constraint firstItem="vYj-NK-clC" firstAttribute="top" secondItem="jYi-UW-cWV" secondAttribute="top" id="XQv-Tu-l0i"/>
+                            <constraint firstItem="jYi-UW-cWV" firstAttribute="trailing" secondItem="vYj-NK-clC" secondAttribute="trailing" id="l5s-gR-Ry2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="8ze-O1-lNa" id="kch-Jz-w8V"/>
+                        <outlet property="webView" destination="vYj-NK-clC" id="mSU-3E-xUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ag9-hE-LxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

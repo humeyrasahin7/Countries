@@ -62,9 +62,9 @@
             filePath = "Countries/Views/DetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "favButtonTapped()"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "setFlagPicture(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,10 +78,10 @@
             filePath = "Countries/Views/DetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "DetailsViewController"
-            landmarkType = "21">
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "setFlagPicture(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

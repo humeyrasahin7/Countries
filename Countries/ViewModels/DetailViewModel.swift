@@ -38,7 +38,7 @@ final class DetailViewModel {
             self.detail = result
             self.setFlag((self.detail?.flagImageURI)!)
             self.setCountryCode((self.detail?.wikiDataID)!)
-            self.setCountryCode(code)
+            self.setwikiID((self.detail?.wikiDataID)!)
         }
     }
    
