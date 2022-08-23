@@ -18,6 +18,14 @@ extension UIView{
                bottomAnchor.constraint(equalTo: subview.bottomAnchor).isActive = true
            }
        }
-    
 }
 
+extension UITableViewCell{
+    public func configCellView(){
+        self.backgroundColor = UIColor.white
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 6
+        self.clipsToBounds = true
+    }
+}

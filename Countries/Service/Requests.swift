@@ -8,11 +8,6 @@
 import Foundation
 import Alamofire
 
-enum RequestError: Error{
-    case noDataAvailable
-    case canNotProcessData
-}
-
 private let headers: HTTPHeaders = [
     "X-RapidAPI-Key": "795e97294fmsh26fe1d2658c2554p1d505djsn2828d828d307",
         "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"

@@ -10,6 +10,8 @@ import UIKit
 class CountryCell: UITableViewCell {
 
     @IBOutlet weak var addFavButton: UIButton!
+    var buttonPressed : (() -> ()) = {}
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +23,8 @@ class CountryCell: UITableViewCell {
     }
 
     @IBAction func addFavTapped(_ sender: Any) {
+        buttonPressed()
     }
+    
+    
 }

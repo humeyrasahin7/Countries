@@ -8,28 +8,36 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+ 
     @IBOutlet weak var tableView: UITableView!
-    
-    //private var countries: [Country]?
-    let viewModel = HomeViewModel()
+
+    private var countries = [Country]()
+    lazy var service = Requests()
+    private var favs = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Countries"
         tableView.delegate = self
         tableView.dataSource = self
-        
-        viewModel.delegate = self
-        viewModel.loadCountries()
-        title = "Countries"
-    
+        service.fetchCountries { [weak self] countriesList in
+            guard let self = self else {return}
+            self.countries = countriesList
+            
+            self.reloadData()
+        }
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        StaticCountry.instance.favCountries = StaticCountry.instance.userDefaults.value(forKey: "favs") as? [String] ?? [String]()
+        tableView.reloadData()
+        tabBarController?.tabBar.isHidden = false
+    }
+
 }
 
-extension HomeViewController: HomeViewModelDelegate{
+extension HomeViewController{
     func reloadData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -38,25 +46,62 @@ extension HomeViewController: HomeViewModelDelegate{
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return countries.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCountries
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let country = viewModel.country(index: indexPath.row)
-        
+        let country = countries[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell") as! CountryCell
-        cell.textLabel?.text = country?.name ?? ""
+        cell.configCellView()
+        
+        cell.textLabel?.text = country.name
+        if StaticCountry.instance.favCountries.contains(country.code){
+            cell.addFavButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            cell.addFavButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        
+        cell.buttonPressed = {
+            if StaticCountry.instance.favCountries.contains(country.code){
+                StaticCountry.instance.favCountries.removeAll(where: {$0 == country.code})
+                cell.addFavButton.setImage(UIImage(systemName: "star"), for: .normal)
+                //StaticCountry.instance.favCountries = self.favs
+                //StaticCountry.instance.userDefaults.set(self.favs, forKey: "favs")
+            } else {
+                StaticCountry.instance.favCountries.append(country.code)
+                cell.addFavButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                //StaticCountry.instance.favCountries = self.favs
+                StaticCountry.instance.userDefaults.set(StaticCountry.instance.favCountries, forKey: "favs")
+            }
+            print(StaticCountry.instance.favCountries)
+            StaticCountry.instance.userDefaults.set(StaticCountry.instance.favCountries, forKey: "favs")
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let country = viewModel.country(index: indexPath.row)
+        let country = countries[indexPath.section]
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailsViewController
-        vc.viewModel.code = country?.code ?? ""
-        navigationController?.pushViewController(vc, animated: true)
+        vc.country = country
+        self.navigationController!.pushViewController(vc, animated: true)
         
     }
+    
     
 }
 
