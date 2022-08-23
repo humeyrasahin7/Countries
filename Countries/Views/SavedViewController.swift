@@ -14,6 +14,7 @@ class SavedViewController: UIViewController {
     var favCountries = [Country]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title  = "Saved Countries"
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -24,23 +25,18 @@ class SavedViewController: UIViewController {
         favCountryCodes = StaticCountry.instance.favCountries
         countries = StaticCountry.instance.countries!
 
-        /*for i in favCountryCodes{
+        for i in favCountryCodes{
             for j in countries{
                 if j.code == i{
                     favCountries.append(j)
                 }
             }
-        }*/
-        for i in favCountryCodes{
-        favCountries = countries.filter{ country in
-            country.code.elementsEqual(i)
         }
-        }
-        print(favCountries)
         tableView.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        favCountries = [Country]()
         tableView.reloadData()
     }
 
@@ -102,7 +98,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let country = countries[indexPath.section]
+        let country = favCountries[indexPath.section]
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailsViewController
         vc.country = country
         self.navigationController!.pushViewController(vc, animated: true)

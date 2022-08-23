@@ -20,10 +20,12 @@ class HomeViewController: UIViewController {
         title = "Countries"
         tableView.delegate = self
         tableView.dataSource = self
+        tabBarController?.tabBar.isUserInteractionEnabled = false
         service.fetchCountries { [weak self] countriesList in
             guard let self = self else {return}
             self.countries = countriesList
             StaticCountry.instance.countries = countriesList
+            self.tabBarController?.tabBar.isUserInteractionEnabled = true
             self.reloadData()
         }
         

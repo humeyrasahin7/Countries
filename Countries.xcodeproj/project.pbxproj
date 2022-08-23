@@ -23,9 +23,6 @@
 		C2DD42D428B3696F00DB08BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DD42D228B3696F00DB08BC /* Main.storyboard */; };
 		C2DD42D628B3696F00DB08BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DD42D528B3696F00DB08BC /* Assets.xcassets */; };
 		C2DD42D928B3696F00DB08BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DD42D728B3696F00DB08BC /* LaunchScreen.storyboard */; };
-		C2DD42E428B3696F00DB08BC /* CountriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD42E328B3696F00DB08BC /* CountriesTests.swift */; };
-		C2DD42EE28B3696F00DB08BC /* CountriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD42ED28B3696F00DB08BC /* CountriesUITests.swift */; };
-		C2DD42F028B3696F00DB08BC /* CountriesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD42EF28B3696F00DB08BC /* CountriesUITestsLaunchTests.swift */; };
 		C2EBFF4828B52288007AB17C /* StaticCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBFF4728B52288007AB17C /* StaticCountry.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,10 +61,7 @@
 		C2DD42D828B3696F00DB08BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2DD42DA28B3696F00DB08BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2DD42DF28B3696F00DB08BC /* CountriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2DD42E328B3696F00DB08BC /* CountriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTests.swift; sourceTree = "<group>"; };
 		C2DD42E928B3696F00DB08BC /* CountriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2DD42ED28B3696F00DB08BC /* CountriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesUITests.swift; sourceTree = "<group>"; };
-		C2DD42EF28B3696F00DB08BC /* CountriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C2EBFF4728B52288007AB17C /* StaticCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCountry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,8 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				C2DD42CB28B3696F00DB08BC /* Countries */,
-				C2DD42E228B3696F00DB08BC /* CountriesTests */,
-				C2DD42EC28B3696F00DB08BC /* CountriesUITests */,
 				C2DD42CA28B3696F00DB08BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,23 +163,6 @@
 				C2DD42DA28B3696F00DB08BC /* Info.plist */,
 			);
 			path = Countries;
-			sourceTree = "<group>";
-		};
-		C2DD42E228B3696F00DB08BC /* CountriesTests */ = {
-			isa = PBXGroup;
-			children = (
-				C2DD42E328B3696F00DB08BC /* CountriesTests.swift */,
-			);
-			path = CountriesTests;
-			sourceTree = "<group>";
-		};
-		C2DD42EC28B3696F00DB08BC /* CountriesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C2DD42ED28B3696F00DB08BC /* CountriesUITests.swift */,
-				C2DD42EF28B3696F00DB08BC /* CountriesUITestsLaunchTests.swift */,
-			);
-			path = CountriesUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DD42E428B3696F00DB08BC /* CountriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,8 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DD42EE28B3696F00DB08BC /* CountriesUITests.swift in Sources */,
-				C2DD42F028B3696F00DB08BC /* CountriesUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
