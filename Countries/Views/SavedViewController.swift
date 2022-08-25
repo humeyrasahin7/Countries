@@ -90,7 +90,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.addFavButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 StaticCountry.instance.userDefaults.set(StaticCountry.instance.favCountries, forKey: "favs")
             }
-            print(StaticCountry.instance.favCountries)
+            
             StaticCountry.instance.userDefaults.set(StaticCountry.instance.favCountries, forKey: "favs")
         }
         
