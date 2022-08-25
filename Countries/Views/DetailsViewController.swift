@@ -102,10 +102,8 @@ extension DetailsViewController{
         if isFav{
             StaticCountry.instance.favCountries.removeAll(where: {$0 == country.code})
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
-            //buttonImage = UIImage(systemName: "star")
         } else {
             StaticCountry.instance.favCountries.append(country.code)
-            //buttonImage = UIImage(systemName: "star.fill")
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
             StaticCountry.instance.userDefaults.set(StaticCountry.instance.favCountries, forKey: "favs")
             

@@ -82,12 +82,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             if StaticCountry.instance.favCountries.contains(country.code){
                 StaticCountry.instance.favCountries.removeAll(where: {$0 == country.code})
                 cell.addFavButton.setImage(UIImage(systemName: "star"), for: .normal)
-                //StaticCountry.instance.favCountries = self.favs
-                //StaticCountry.instance.userDefaults.set(self.favs, forKey: "favs")
             } else {
                 StaticCountry.instance.favCountries.append(country.code)
                 cell.addFavButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-                //StaticCountry.instance.favCountries = self.favs
                 StaticCountry.instance.userDefaults.set(StaticCountry.instance.favCountries, forKey: "favs")
             }
             print(StaticCountry.instance.favCountries)
